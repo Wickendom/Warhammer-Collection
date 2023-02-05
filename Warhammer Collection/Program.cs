@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Warhammer_Collection.Data;
+using Warhammer_Collection.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +10,13 @@ builder.Services.AddDbContext<Warhammer_CollectionContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Warhammer_CollectionContext") ?? throw new InvalidOperationException("Connection string 'Warhammer_CollectionContext' not found.")));
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    SeedData.Initialize(services);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

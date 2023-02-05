@@ -14,6 +14,12 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Mini[0].game)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mini[0].faction)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Mini[0].modelName)
             </th>
             <th>
@@ -25,6 +31,12 @@
     <tbody>
 @foreach (var item in Model.Mini) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.game)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.faction)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.modelName)
             </td>

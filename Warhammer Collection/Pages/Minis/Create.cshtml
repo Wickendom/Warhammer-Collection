@@ -14,6 +14,16 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="Mini.game" class="control-label"></label>
+                <input asp-for="Mini.game" class="form-control" />
+                <span asp-validation-for="Mini.game" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mini.faction" class="control-label"></label>
+                <input asp-for="Mini.faction" class="form-control" />
+                <span asp-validation-for="Mini.faction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Mini.modelName" class="control-label"></label>
                 <input asp-for="Mini.modelName" class="form-control" />
                 <span asp-validation-for="Mini.modelName" class="text-danger"></span>
